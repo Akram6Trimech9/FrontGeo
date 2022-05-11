@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div mat-dialog-content>
+      <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+            <input matInput formControlName="title" placeholder="title">
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+             <input matInput formControlName="longitude" placeholder="longitude">
+             </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+            <input matInput formControlName="latitude" placeholder="latitude" >
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+               <input matInput formControlName="floor"  placeholder="floor">
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="apartNumber"  placeholder="apartNumber">
+           </mat-form-field>
+
+           
+            <br>
+                 <mat-form-field appearance="fill">
+                    <mat-label>Select tournee</mat-label>
+                    <mat-select   formControlName="tournee" (selectionChange)="ontourneeChange($event)" > 
+                      <mat-option *ngFor="let obj of tournees" [value]="obj._id">
+                        {{obj.parite}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+         </form>
+    </div>
+    <div mat-dialog-actions>
+      <button  class='button btn btn-success' mat-button mat-dialog-close>Close</button>
+      <button class='button  btn btn-primary' mat-button (click)="addthis()">add</button>
+    
+    </div>
+    </div>
+    
+    

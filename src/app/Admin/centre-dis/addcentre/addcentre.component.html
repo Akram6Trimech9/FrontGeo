@@ -1,0 +1,38 @@
+<div class="container">
+
+    <div mat-dialog-content>
+      <form [formGroup]="form">
+            <mat-form-field appearance="fill">
+             <input matInput formControlName="nom" placeholder="nom">
+             </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+            <input matInput formControlName="tel" placeholder="tel" >
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+               <input matInput formControlName="fax"  placeholder="fax">
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="longitude"  placeholder="longitude">
+           </mat-form-field>
+           <mat-form-field appearance="fill">
+            <input matInput formControlName="latitude"  placeholder="latitude">
+         </mat-form-field>
+            <br>
+                 <mat-form-field appearance="fill">
+                    <mat-label>Select Region</mat-label>
+                    <mat-select   formControlName="region" (selectionChange)="onRegionChange($event)" > 
+                      <mat-option *ngFor="let obj of allRegion" [value]="obj._id">
+                        {{obj.Libelle}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+         </form>
+    </div>
+    <div mat-dialog-actions>
+      <button  class='button btn btn-success' mat-button mat-dialog-close>Close</button>
+      <button class='button  btn btn-primary' mat-button (click)="addthis()">add</button>
+    
+    </div>
+    </div>
+    
+    

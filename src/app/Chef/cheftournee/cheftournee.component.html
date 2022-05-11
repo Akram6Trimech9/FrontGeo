@@ -1,0 +1,103 @@
+<div class="container-xl">
+	<div class="table-responsive">
+		<div style="margin-top: 200px;" class="table-wrapper">
+          <!-- Delete Modal HTML
+
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+					</div>
+					<div class="col-sm-6">					
+					</div>
+				</div>
+			</div> -->
+            <cds-search layout="horizontal">
+                <label>search</label>
+                <input [(ngModel)]="searchb" (ngModelChange)="search()" type="search" />
+            </cds-search>
+            
+			<table class="table table-striped table-hover">
+
+
+				<thead>
+					<tr>
+                        <th><button class="button"   (click)="openDialog()"  mat-raised-button color="primary">+</button> </th>
+						<th>parite</th>
+						<th>numDebut</th>
+						<th>numFin</th>
+                        <th>codetype</th>
+                        <th>nomvoi</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let obj of Alltournee ">
+                        <td></td>
+                        <td>{{obj.parite}}</td>
+						<td>{{obj.numDebut}} </td>
+						<td>{{obj.numFin}} </td>
+                        <td>{{obj.typeVoi.codetype}} </td>
+                        <td>{{obj.nomvoi}} </td>
+ 						<td>
+							<a style="cursor: pointer;" (click)="editfunction(obj._id)" class="edit" data-toggle="modal" data-target="#exampleModalCenter"><i  class="material-icons"   title="Edit">&#xE254;</i></a>
+							<a style="cursor: pointer;" (click)="deleteAdress(obj._id)"  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"  title="Delete">&#xE872;</i></a>
+						</td>
+					</tr>	
+				</tbody>
+			</table>
+
+		</div>
+		
+	</div>   
+    
+</div>
+
+<!-- Modal -->
+<div  *ngIf="condition" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit Centre  : </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+			<form [formGroup]="form">
+				<mat-form-field appearance="fill">
+				 <input matInput formControlName="parite" placeholder="{{tourneeAediter.parite}}">
+				 </mat-form-field><br> 
+				<mat-form-field appearance="fill">
+				<input matInput formControlName="numDebut" placeholder={{tourneeAediter.numDebut}} >
+				</mat-form-field><br> 
+				<mat-form-field appearance="fill">
+				   <input matInput formControlName="numFin"  placeholder={{tourneeAediter.numFin}}>
+				</mat-form-field><br> 
+				<mat-form-field appearance="fill">
+				  <input matInput formControlName="codetype"  placeholder={{tourneeAediter.typeVoi.codetype}}>
+			   </mat-form-field><br> 
+               <mat-form-field appearance="fill">
+                <input matInput formControlName="npmtype"  placeholder={{tourneeAediter.typeVoi.npmtype}}>
+             </mat-form-field><br> 
+             <mat-form-field appearance="fill">
+                <input matInput formControlName="nomvoi"  placeholder={{tourneeAediter.nomvoi}}>
+             </mat-form-field>
+				<br>
+				<label for="selectAction"></label>
+                <select ngModel name="option" class="form-control"    (change)= "Function(t.value)" #t>
+                    <option *ngFor="let op of Facteurs" [value]="op._id"    >
+                        {{op.nom}}
+                    </option>
+                </select>
+				<br>
+			 </form>
+        </div>
+        <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          <button  type="button" (click)="editinfo()" class="btn btn-success" data-dismiss="modal">Submit</button>
+         </div>
+      </div>
+    </div>
+  </div>
+
+

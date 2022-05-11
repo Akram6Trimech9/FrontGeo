@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="card">
+        <div class="form">
+            <div class="left-side"> 
+                <div class="activities">
+                    <div  data-toggle="modal" data-target="#exampleModalCenter" *ngFor="let obj of activities" class="item">
+                        <div><img style="border-radius: 4px;" src="{{obj.image}}" width="60px" height="60px"></div>
+                        <div  style="cursor: pointer;" (click)="getActivity(obj._id)" class="title text">{{obj.title}}</div>
+                    </div>
+                </div>
+            </div>
+                  <google-map    width="600" class="right-side" [center]="center" [zoom]="6" >
+                    <!-- *ngFor="let marker of markers" -->
+
+                      <map-marker
+                      #markerElem
+                      *ngFor="let marker of markers"
+                      [position]="marker.position"                     
+                       [label]="marker.label"
+                      [title]="marker.title"
+                      [options]="marker.options"
+                      [clickable]="true"
+                      (mapClick)="openthis(marker,target)">
+
+                      <map-info-window>wiou</map-info-window>
+
+                      </map-marker>
+
+                  </google-map>
+
+         </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div  class="mod modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"> Choisi votre region </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group" >
+                <label for="selectAction"></label>
+                <select ngModel name="option" class="form-control"    (change)= "Function(t.value)" #t>
+                    <option *ngFor="let op of regions" [value]="op._id"    >
+                        {{op.Libelle}}
+                    </option>
+                </select>
+            </div>
+            <br>
+            <br>
+                 <!-- <form [formGroup]="form">
+                           <mat-form-field appearance="fill">
+                              <mat-label>Select Region</mat-label>
+                              <mat-select   formControlName="region" (selectionChange)="onRegionChange($event)" > 
+                                <mat-option *ngFor="let obj of regions" [value]="obj.Libelle">
+                                  {{obj.Libelle}}
+                                </mat-option>
+                              </mat-select>
+                      </mat-form-field>
+                </form> -->
+                    </div>
+        <div class="modal-footer">
+          <button type="button" class="btnnDanger  btn" data-dismiss="modal">Close</button>
+          <button  (click)="getcentreByRegion()" type="button" class="btnn btn " data-dismiss="modal">submit</button>
+
+         </div>
+      </div>
+    </div>
+  </div>
+<div   #target class="formulaire" >
+  <div class="titre" *ngIf="!open" >
+    you want to contact : {{panier.NomCentre}} 
+  </div>
+  <div class="form1" *ngIf="!open" >
+    <form *ngIf="variable" #f="ngForm" (ngSubmit)="onSubmit(f)" >
+      <div class="form-group" >
+        <label for="exampleInputEmail1">Email </label>
+        <input name="email" ngModel type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+       </div>
+       
+       <div class="form-group" >
+        <label for="exampleInputEmail1">Nom :  </label>
+        <input name="name" ngModel type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter votre nom">
+       </div>
+       <div class="form-group" >
+        <label for="exampleInputEmail1">prenom : </label>
+        <input name="prenom" ngModel type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter votre prenom">
+       </div>
+      <button  style="margin-top: 10px; background-color: #00364d ;" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div *ngIf="!variable">
+      {{Message}}
+    </div>   
+  </div>
+
+</div>
+ 

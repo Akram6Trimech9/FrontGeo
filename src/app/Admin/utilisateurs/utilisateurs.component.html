@@ -1,0 +1,50 @@
+<div class="container-xl">
+	<div class="table-responsive">
+		<div class="table-wrapper">
+          <!-- Delete Modal HTML
+
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-6">
+					</div>
+					<div class="col-sm-6">					
+					</div>
+				</div>
+			</div> -->
+
+            <cds-search layout="horizontal">
+                <label>search</label>
+                <input [(ngModel)]="searchb" (ngModelChange)="search()" type="search" />
+            </cds-search>
+            
+			<table class="table table-striped table-hover">
+
+
+				<thead>
+					<tr>
+                        <th>
+                        </th>
+						<th>Nom</th>
+						<th>Prenom</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr  *ngFor="let obj of object"  >
+                        <td></td>
+						<td> {{obj.nom}}</td>
+						<td>{{obj.prenom}} </td>
+						<td>{{obj.email}} </td>
+						<td>
+							<a  (click)="myFunction(obj._id)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip"  title="Delete">&#xE872;</i></a>
+						</td>
+					</tr>	
+				</tbody>
+			</table>
+
+		</div>
+	</div>        
+</div>
+
+

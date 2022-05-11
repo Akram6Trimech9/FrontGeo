@@ -1,0 +1,43 @@
+<div class="container">
+
+    <div mat-dialog-content>
+      <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+            <input matInput formControlName="parite" placeholder="parite">
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+             <input matInput formControlName="numDebut" placeholder="numDebut">
+             </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+            <input matInput formControlName="numFin" placeholder="numFin" >
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+               <input matInput formControlName="codetype"  placeholder="codetype">
+            </mat-form-field><br> 
+            <mat-form-field appearance="fill">
+              <input matInput formControlName="npmtype"  placeholder="npmtype">
+           </mat-form-field>
+           <br>
+
+           <mat-form-field appearance="fill">
+            <input matInput formControlName="nomvoi"  placeholder="nomvoi">
+         </mat-form-field>
+            <br>
+                 <mat-form-field appearance="fill">
+                    <mat-label>Select facteur</mat-label>
+                    <mat-select   formControlName="tournee" (selectionChange)="onfacteurchange($event)" > 
+                      <mat-option *ngFor="let obj of Facteurs" [value]="obj._id">
+                        {{obj.nom}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+         </form>
+    </div>
+    <div mat-dialog-actions>
+      <button  class='button btn btn-success' mat-button mat-dialog-close>Close</button>
+      <button class='button  btn btn-primary' mat-button (click)="addthis()">add</button>
+    
+    </div>
+    </div>
+    
+    

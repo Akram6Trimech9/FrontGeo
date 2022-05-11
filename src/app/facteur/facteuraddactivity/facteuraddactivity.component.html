@@ -1,0 +1,36 @@
+ 
+<div class="container">
+    <div class="card">
+        <div class="form">
+            <div class="left-side"> 
+                <div class="activities">
+                    <div>
+                        <div class="debit-card"> 
+                            <div class="card_name"> <small>Select Adress</small> <span class="user_name"></span> 
+                                <select ngModel name="option" class="form-control"    (change)= "Function(t.value)" #t>
+                                    <option *ngFor="let op of adressoft" [value]="op._id"    >
+                                        {{op.title}}
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+
+                  <div class="right-side" >
+                    <h3>Add an activity </h3>
+                    <div     class="input-text"> <input type="text" id="user_name_input"    require> <span> title</span> </div>
+                    <input   name="title" ngModel style="padding-top: 20px;" type="file" class="file-input"
+                    [accept]="requiredFileType"
+                   (change)="onFileSelected($event)" #fileUpload>                 
+                     <div class="button"> <button class="click-pay">Valider</button> </div>
+                  </div>
+                </form>
+
+         </div>
+    </div>
+</div>
+

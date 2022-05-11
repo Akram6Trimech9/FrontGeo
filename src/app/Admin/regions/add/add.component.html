@@ -1,0 +1,22 @@
+<div class="container">
+
+<div mat-dialog-content>
+  <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+         <input matInput formControlName="Libelle" placeholder="name">
+         </mat-form-field><br> 
+        <mat-form-field appearance="fill">
+        <input matInput formControlName="longitude" placeholder="longitude" >
+        </mat-form-field><br> 
+        <mat-form-field appearance="fill">
+           <input matInput formControlName="latitude"  placeholder="latitude">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button  class='button btn btn-success' mat-button mat-dialog-close>Close</button>
+  <button class='button  btn btn-primary' mat-button (click)="addthis()">add</button>
+
+</div>
+</div>
+

@@ -1,0 +1,28 @@
+    <header class="header-6">
+        <div class="branding">
+          <a href="javascript://" class="nav-link">
+            <cds-icon shape="vm-bug"></cds-icon>
+            <span class="title">Admin  &nbsp; <small>( {{prenom}} ) </small>
+            </span>
+          </a>
+        </div>
+        <div class="header-nav">
+          <a  routerLinkActive="active" routerLink="profil"  class="nav-link nav-text">mon profil </a>
+         </div>
+        <div class="header-actions">
+          <a (click)="onLogOut()" class="nav-link nav-icon" aria-label="settings">
+            <cds-icon  shape="logout"></cds-icon>
+        </a>
+        </div>
+      </header>  
+  <div class="content-container">
+    <nav class="sidenav">
+      <section class="sidenav-content">
+        <a  routerLinkActive="active" routerLink="utilisateurs" class="nav-link nav-icon"><cds-icon shape="user"></cds-icon> les utilisateurs </a>
+        <a routerLinkActive="active" routerLink="regions"  class="nav-link"><cds-icon shape="filter-grid"></cds-icon>  Les regions </a>
+        <a  routerLinkActive="active" routerLink="centre"   class="nav-link "><cds-icon shape="home"></cds-icon> Les  Centres</a>
+        <a  routerLinkActive="active" routerLink="facteur"   class="nav-link" ><cds-icon shape="employee"></cds-icon> Les Facteurs </a>
+        <a routerLinkActive="active" routerLink="tournee"  class="nav-link"><cds-icon shape="landscape">  </cds-icon>Les Tournées </a>
+        <a routerLinkActive="active" routerLink="activity" class="nav-link"><cds-icon shape="filter"></cds-icon> Les Activité </a>
+      </section>
+    </nav>

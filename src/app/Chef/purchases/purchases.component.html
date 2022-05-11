@@ -1,0 +1,74 @@
+<div class="container-xl">
+	<div class="table-responsive">
+		<div style="margin-top: 200px;" class="table-wrapper">
+       
+            <cds-search layout="horizontal">
+                <label>search</label>
+                <input [(ngModel)]="searchb" (ngModelChange)="search()" type="search" />
+            </cds-search>
+            
+			<table class="table table-striped table-hover">
+
+
+				<thead>
+					<tr>
+						<th>Email</th>
+						<th>Region</th>
+                        <th>Activity</th>
+                        <th>Centre</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let obj of panier">
+                        <td>{{obj.email}}</td>
+						<td>{{obj.region.Libelle}} </td>
+                        <td>{{obj.Activity.title}} </td>
+                        <td>{{obj.Centre.nom}} </td>
+ 						<td>
+							<a (click)="showthis(obj._id)"  data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xe616;</i></a>
+							<a  (click)="deletePanier(obj._id)"  class="delete" data-toggle="modal"><i class="material-icons"  title="Delete">&#xE872;</i></a>
+						</td>
+					</tr>	
+				</tbody>
+			</table>
+
+		</div>
+	</div>   
+    
+</div>
+
+
+<!-- Modal -->
+<div class=" modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Send email to this Client : </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div *ngIf="!bool" class="modal-body">
+ 
+            <form  #f="ngForm">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1"> Email : {{panierdetails.email}}</label>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Price</label>
+                    <input name="Price" ngModel type="email" class="form-control" id="exampleFormControlInput1" placeholder="Price">
+                  </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Message</label>
+                  <textarea  name="Message" ngModel class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                     <button type="submit" class="btn btn-secondary"   (click)="onSubmit(f)" data-dismiss="modal">Submit</button>
+
+               </form>
+               
+                   </div>
+       
+      </div>
+    </div>
+  </div>
