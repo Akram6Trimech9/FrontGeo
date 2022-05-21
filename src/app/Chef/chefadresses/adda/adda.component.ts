@@ -52,12 +52,12 @@ export class AddaComponent implements OnInit {
       "floor": Number( this.form.value.floor) ,
       "apartNumber":  Number( this.form.value.apartNumber) ,
     }}
-   this.adressService.postaddress(this.selectedtournee,data).subscribe(res=>{
-    this.router.navigate(['chefdash/adresses']).then(() => {
-      window.location.reload();
-    });  
+  //  this.adressService.postaddress(this.selectedtournee,data).subscribe(res=>{
+  //   this.router.navigate(['chefdash/adresses']).then(() => {
+  //     window.location.reload();
+  //   });  
 
-   }) 
+  //  }) 
   
  }
  }

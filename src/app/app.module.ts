@@ -13,12 +13,15 @@ import { ChefModule } from './Chef/chef.module';
 import { ChefRoutingModule } from './Chef/chef-routing.module';
 import { FacteurModule } from './facteur/facteur.module';
 import { FacteurRoutingModule } from './facteur/facteur-routing.module';
+import { CentreGeoComponent } from './centre-geo/centre-geo.component';
+import { CentreGeoModule } from './centre-geo/centre-geo.module';
+import { CentreGeoRoutingModule } from './centre-geo/centre-geo-routing.module';
  //import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
-  ],
+   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -33,7 +36,9 @@ import { FacteurRoutingModule } from './facteur/facteur-routing.module';
     ChefRoutingModule,
     ClientModule,
     ClientRoutingModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    CentreGeoModule,
+    CentreGeoRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

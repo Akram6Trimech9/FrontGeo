@@ -4,26 +4,42 @@
         <div class="form">
             <div class="left-side"> 
                 <div class="activities">
-                    <div>
-                        <div class="debit-card"> 
-                            <div class="card_name"> <small>Select Adress</small> <span class="user_name"></span> 
-                                <select ngModel name="option" class="form-control"    (change)= "Function(t.value)" #t>
-                                    <option *ngFor="let op of adressoft" [value]="op._id"    >
-                                        {{op.title}}
-                                    </option>
-                                </select>
-                            </div>
+                    <div *ngIf="show" class="left">
+                                 <form  [formGroup]="form">
+                                     <div style=" margin-left: 70px;font-size: large ;color: #fff;" > Add Adress</div>
+                                    <select id="options"  class="form-control" style=" margin-left: 10px;font-size: 20px; margin-bottom: 20px; width: 600px; color: #fff;"   (change)= "FunctionR(t.value)"  #t clrSelect name="type" >
+                                        <option *ngFor="let op of regions" [value]="op._id" >{{op.Libelle}}</option>
+                                      </select>
+                                    <mat-form-field appearance="fill">
+                                        <input type="text" matInput formControlName="title" placeholder="title">
+                                        </mat-form-field><br> 
+                                        <mat-form-field appearance="fill">
+                                         <input type="text" matInput formControlName="longitude" placeholder="longitude">
+                                         </mat-form-field><br> 
+                                        <mat-form-field appearance="fill">
+                                        <input type="text" matInput formControlName="latitude" placeholder="latitude" >
+                                        </mat-form-field><br> 
+                                        <mat-form-field appearance="fill">
+                                           <input type="text" matInput formControlName="floor"  placeholder="floor">
+                                        </mat-form-field>
+                                        <mat-form-field appearance="fill">
+                                          <input type="text" matInput formControlName="apartNumber"  placeholder="apartNumber">
+                                       </mat-form-field>
+                                        <br>
+                                            <button (click)="addaddress()" type="submit" style="font-size: 20px; border-radius: 5px; margin-left: 490px; background-color: #fff;">Submit</button>
+                                     </form>
 
-                        </div>
-                     </div>
+                      </div>
+                      <div  style="color: white;" *ngIf="!show" class="left">
+                             Adress Added 
+                      </div>
                 </div>
             </div>
-            <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
-
+            <form *ngIf="!show" #f="ngForm" (ngSubmit)="onSubmit(f)" >
                   <div class="right-side" >
                     <h3>Add an activity </h3>
-                    <div     class="input-text"> <input type="text" id="user_name_input"    require> <span> title</span> </div>
-                    <input   name="title" ngModel style="padding-top: 20px;" type="file" class="file-input"
+                    <div     class="input-text"> <input type="text" style="color: black;" name="title" ngModel   id="user_name_input"    require> <span> title</span> </div>
+                    <input   ngModel style="padding-top: 20px;" type="file" class="file-input"
                     [accept]="requiredFileType"
                    (change)="onFileSelected($event)" #fileUpload>                 
                      <div class="button"> <button class="click-pay">Valider</button> </div>

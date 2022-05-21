@@ -11,6 +11,9 @@ export class CentregeoService {
   addcentre(centre :any , id:any ):Observable<any>{
     return  this.http.post<any>(`${this.url}/${id}`,centre) 
   }
+  loginCentre(centre :any  ):Observable<any>{
+    return  this.http.post<any>(`${this.url}/`,centre) 
+  }
   getallcentres() : Observable<any[]>  {
     return this.http.get<any[]>(`${this.url}/`);
   } 
@@ -27,6 +30,11 @@ return this.http.delete<any>(`${this.url}/${id}`)
   UpdateCentre(centre:any , id :any ){
     return this.http.patch<any>(`${this.url}/${id}`,centre)
   }
+  initializeLocalStorage(token: string): void{
+    localStorage.setItem('access_token', token);
+  }
+
+  
 }
 
 

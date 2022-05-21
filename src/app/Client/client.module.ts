@@ -22,6 +22,7 @@ import { IneterClientComponent } from './ineter-client/ineter-client.component';
        ClientSignupComponent,
        NavComponent,
        ProfilComponent,
+       
        IneterClientComponent,
       ClientComponent,
   ],

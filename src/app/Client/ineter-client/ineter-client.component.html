@@ -66,7 +66,7 @@
                     </div>
         <div class="modal-footer">
           <button type="button" class="btnnDanger  btn" data-dismiss="modal">Close</button>
-          <button  (click)="getcentreByRegion()" type="button" class="btnn btn " data-dismiss="modal">submit</button>
+          <button  (click)="getaddressByRegion()" type="button" class="btnn btn " data-dismiss="modal">submit</button>
 
          </div>
       </div>
@@ -74,7 +74,7 @@
   </div>
 <div   #target class="formulaire" >
   <div class="titre" *ngIf="!open" >
-    you want to contact : {{panier.NomCentre}} 
+    you want to contact for  : {{panier.NomCentre}} 
   </div>
   <div class="form1" *ngIf="!open" >
     <form *ngIf="variable" #f="ngForm" (ngSubmit)="onSubmit(f)" >

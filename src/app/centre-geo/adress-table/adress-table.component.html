@@ -1,0 +1,38 @@
+<div class="container-xl">
+	<div class="table-responsive">
+		<div style="width: 200px; margin-top:-20px; margin-left: 250px;" class="table-wrapper">
+
+       
+            <cds-search layout="horizontal">
+                <label>search</label>
+                <input type="search" />
+            </cds-search>
+            
+			<table class="table table-striped table-hover">
+
+
+				<thead>
+					<tr>
+						<th>title</th>
+                        <th>floor</th>
+                        <th>apartNumber</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let obj of addresses">
+                        <td>{{obj.title}}</td>
+                        <td>{{obj.building.floor}} </td>
+                        <td>{{obj.building.apartNumber}} </td>
+ 						<td>
+							<a  (click)="delete(obj._id)"  class="delete" data-toggle="modal"><i class="material-icons"  title="Delete">&#xE872;</i></a>
+						</td>
+					</tr>	
+				</tbody>
+			</table>
+
+		</div>
+	</div>   
+    
+</div>
+ 

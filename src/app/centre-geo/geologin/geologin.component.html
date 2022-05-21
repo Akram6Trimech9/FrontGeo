@@ -1,5 +1,5 @@
 <div class="login-wrapper">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)"  class="login">
+    <form  [formGroup]="myform"  novalidate  class="login">
       <section class="title">
         <h3 class="welcome">Welcome to</h3>
         Company Product Name
@@ -9,26 +9,24 @@
         <clr-select-container>
           <label class="clr-sr-only">User Role</label>
           <select clrSelect name="type" >
-            <option value="admin">Facteur</option>
+            <option value="admin">centre de Geo marketinng </option>
           </select>
         </clr-select-container>
         <clr-input-container>
           <label class="clr-sr-only">Username</label>
-          <input  ngModel required #first="ngModel" type="text" name="email" clrInput placeholder="Username"  />
+          <input  name="email"  required    type="text" clrInput placeholder="Username"   formControlName="email"  />
         </clr-input-container>
-        <clr-password-container   >
+        <clr-password-container>
           <label class="clr-sr-only">Password</label>
-          <input type="password" ngModel name="password" clrPassword placeholder="Password"  />
+          <input type="password" name="password" clrPassword placeholder="Password"  formControlName="password" />
         </clr-password-container>
         <clr-checkbox-wrapper>
           <label>Remember me</label>
           <input type="checkbox" name="rememberMe" clrCheckbox />
         </clr-checkbox-wrapper>
-        <div *ngIf="invalidLogin" class="error active">
-            Invalid user name or password
-          </div>
-        <button type="submit" >NEXT</button>
+        <button type="submit" (click)="onSubmit()"   class="btn btn-primary">NEXT</button>
         <br>
+        <a   [routerLink]="['/centregeoregistre']"  routclass="signup">Sign up </a>
       </div>
     </form>
   </div>

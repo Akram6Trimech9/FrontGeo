@@ -15,7 +15,6 @@ import '@cds/core/icon/shapes/filter';
 import '@cds/core/icon/shapes/home';
 import '@cds/core/icon/shapes/landscape';
 import '@cds/core/icon/shapes/employee';
-
 import { ClarityIcons, employeeIcon, userIcon } from '@cds/core/icon';
 import { logoutIcon, logoutIconName } from '@cds/core/icon';
 import { filterIcon, filterIconName } from '@cds/core/icon';

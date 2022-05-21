@@ -11,8 +11,8 @@ export class AdressService {
     getAdByactivity(id : any) : Observable<any>{
         return this.http.get<any>(`${this.url}/getbyactivity/${id}`)
     }
-    postaddress(id:any,adresse:any) : Observable<any>{
-      return this.http.post<any>(`${this.url}/${id}`,adresse)
+    postaddress(idtourne:any,idregion:any,adresse:any) : Observable<any>{
+      return this.http.post<any>(`${this.url}/${idtourne}/${idregion}`,adresse)
     }
     getallAdress():Observable<any>{
       return this.http.get<any>(`${this.url}/`)
@@ -23,9 +23,15 @@ export class AdressService {
     getAdressByid(id:any):Observable<any>{
       return this.http.get<any>(`${this.url}/${id}`)
     }
+    getaddressbyregion(id:any):Observable<any>{
+      return this.http.get<any>(`${this.url}/getadressbyregion/${id}`)
+    }
+    
+
     deleteAdress(id:any):Observable<any>{
       return this.http.delete<any>(`${this.url}/${id}`)
     }
+  
 
 
 }

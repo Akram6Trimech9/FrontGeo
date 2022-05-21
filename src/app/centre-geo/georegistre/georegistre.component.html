@@ -1,0 +1,64 @@
+<div class="login-wrapper">
+    <form  [formGroup]="Myform"   class="login">
+      <section class="title">
+        <h3 class="welcome">Sign Up</h3>
+        Company Product Name
+        <h5 class="hint"> create a new account</h5>
+      </section>
+      <div class="login-group">
+        <clr-select-container>
+          <label class="clr-sr-only">User Role</label>
+          <select clrSelect name="type" >
+            <option value="admin">centre de Geo marketinng </option>
+          </select>
+        </clr-select-container>
+        <clr-select-container>
+            <!-- <select ngModel name="option" class="form-control"    (change)= "Function(t.value)" #t>
+                <option *ngFor="let op of adressoft" [value]="op._id"    >
+                    {{op.title}}
+                </option>
+            </select> -->
+            <label class="clr-sr-only"> </label>
+            <select      (change)= "Function(t.value)"  #t clrSelect name="type" >
+              <option *ngFor="let op of regions" [value]="op._id" >{{op.Libelle}}</option>
+            </select>
+          </clr-select-container>
+        <clr-input-container>
+            <label class="clr-sr-only">Centre nom </label>
+            <input type="text" name="nom" clrInput placeholder="Centre nom "   formControlName="nom" />
+          </clr-input-container>
+          <clr-input-container>
+            <label class="clr-sr-only">Centre tel </label>
+            <input type="text" name="tel" clrInput placeholder="Centre tel "   formControlName="tel" />
+          </clr-input-container>
+          <clr-input-container>
+            <label class="clr-sr-only">Centre fax </label>
+            <input type="text" name="fax" clrInput placeholder="Centre fax "   formControlName="fax" />
+          </clr-input-container>
+          <clr-input-container>
+            <label class="clr-sr-only">latitude</label>
+            <input type="text" name="latitude" clrInput placeholder="latitude"  formControlName="latitude"  />
+          </clr-input-container>
+          <clr-input-container>
+            <label class="clr-sr-only">longitude</label>
+            <input type="text" name="longitude" clrInput placeholder="longitude"  formControlName="longitude"  />
+          </clr-input-container>
+        <clr-input-container>
+          <label class="clr-sr-only">Email</label>
+          <input type="text" name="Email" clrInput placeholder="Email"  formControlName="email"  />
+        </clr-input-container>
+        <clr-password-container>
+          <label class="clr-sr-only">Password</label>
+          <input        type="password" name="password" clrPassword placeholder="Password"   formControlName="password" />
+        </clr-password-container>
+        <clr-checkbox-wrapper>
+          <label>Remember me</label>
+          <input type="checkbox" name="rememberMe" clrCheckbox />
+        </clr-checkbox-wrapper>
+         
+        <button type="submit" (click)="onSubmit()" class="btn btn-primary">NEXT</button>
+        <a  routerLink="adminlogin"  class="signup"> Back to login page </a>
+      </div>
+    </form>
+  </div>
+  

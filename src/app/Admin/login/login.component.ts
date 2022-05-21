@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.authService.initializeLocalStorage(data.token);
         this.authService.getTokenClaims(data.token);
         setTimeout (() => {
-          this.router.navigateByUrl('/admin');
+          this.router.navigateByUrl('/admin/utilisateurs');
        }, 1500); }
     )
   }

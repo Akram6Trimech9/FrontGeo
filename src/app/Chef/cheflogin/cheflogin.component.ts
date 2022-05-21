@@ -33,7 +33,7 @@ export class ChefloginComponent implements OnInit {
       this.chefService.initializeLocalStorage(data.token) ; 
       this.chefService.getTokenClaims(data.token);
       setTimeout(() => {
-        this.router.navigateByUrl('/chefdash')
+        this.router.navigateByUrl('/chefdash/facteur')
       }, 1500);
     }
 
